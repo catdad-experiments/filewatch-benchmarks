@@ -1,0 +1,30 @@
+{
+  "name": "filewatch-benchmarks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "^3.0.2",
+    "gaze": "^1.1.3",
+    "watchboy": "0.0.2"
+  },
+  "devDependencies": {
+    "del": "^5.0.0",
+    "rootrequire": "^1.0.0",
+    "touch": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catdad-experiments/filewatch-benchmarks.git"
+  },
+  "keywords": [],
+  "author": "Kiril Vatev <vatev.1@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catdad-experiments/filewatch-benchmarks/issues"
+  },
+  "homepage": "https://github.com/catdad-experiments/filewatch-benchmarks#readme"
+}
