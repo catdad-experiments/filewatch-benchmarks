@@ -11,6 +11,7 @@
   "devDependencies": {
     "chalk": "^2.4.2",
     "del": "^5.0.0",
+    "mkdirp": "^0.5.1",
     "rootrequire": "^1.0.0",
     "slash": "^3.0.0",
     "touch": "^3.1.0"
