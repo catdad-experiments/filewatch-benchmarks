@@ -29,5 +29,12 @@ gaze.on('ready', () => {
   console.log(`found ${dirs} directories`);
   console.log(`ready in ${end - start} ms`);
 
+  global.gc();
+  const memory = process.memoryUsage();
+  console.log('memory: heapTotal', memory.heapTotal);
+  console.log('memory: heapUsed', memory.heapUsed);
+  console.log('memory: external', memory.external);
+  console.log('memory: rss', memory.rss);
+
   process.exit(0);
 });
