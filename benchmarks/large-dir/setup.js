@@ -5,13 +5,21 @@ const root = require('rootrequire');
 
 const rand = () => Math.random().toString(36).slice(2);
 
-const dirs = [];
-for (let i = 0; i < 400; i++) {
-  const dir = rand();
-  dirs.push(dir);
-  fs.mkdirSync(path.resolve(root, 'temp', dir));
+const run = (directoryCount, fileCount) => {
+  const dirs = [];
+  for (let i = 0; i < directoryCount; i++) {
+    const dir = rand();
+    dirs.push(dir);
+    fs.mkdirSync(path.resolve(root, 'temp', dir));
 
-  for (let j = 0; j < 16; j++) {
-    fs.writeFileSync(path.resolve(root, 'temp', dir, `${rand()}.txt`), rand());
+    for (let j = 0; j < fileCount; j++) {
+      fs.writeFileSync(path.resolve(root, 'temp', dir, `${rand()}.txt`), rand());
+    }
   }
+};
+
+if (require.main === module) {
+  run(400, 16);
+} else {
+  module.exports = run;
 }
