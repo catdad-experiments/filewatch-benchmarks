@@ -28,5 +28,4 @@ chokidar.watch(['**/*', '!.*'], { cwd, persistent: false })
   console.log('memory: heapUsed', memory.heapUsed);
   console.log('memory: external', memory.external);
   console.log('memory: rss', memory.rss);
-
 });
