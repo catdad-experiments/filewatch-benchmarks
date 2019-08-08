@@ -16,7 +16,7 @@ const exec = (filepath, stdio = 'inherit') => {
 
 const start = Date.now();
 (async () => {
-  console.log(`${process.platform}, ${os.cpus()[0].model}, ${os.cpus()[0].speed}, ${os.cpus().length} cores`);
+  console.log(`${process.platform}, ${os.cpus()[0].model.trim()}, ${os.cpus()[0].speed}, ${os.cpus().length} cores`);
   const tests = fs.readdirSync(path.resolve(root, 'benchmarks'));
 
   for (let test of tests) {
