@@ -2,7 +2,7 @@
 const path = require('path');
 const root = require('rootrequire');
 const { Gaze } = require('gaze');
-const mem = require('./memory.js');
+const mem = require('../../lib/memory.js');
 
 const cwd = path.resolve(root, 'temp');
 mem.init();

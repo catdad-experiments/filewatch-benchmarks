@@ -2,7 +2,7 @@
 const path = require('path');
 const root = require('rootrequire');
 const watchboy = require('watchboy');
-const mem = require('./memory.js');
+const mem = require('../../lib/memory.js');
 
 let files = 0;
 let dirs = 0;
