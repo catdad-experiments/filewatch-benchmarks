@@ -8,7 +8,7 @@ To make sure that he's doing a good job watching after your files, I created thi
 
 After installing some heavyweight node modules like jest, babel, and some others, I ended up with roughly 6400 files in 400 directories. I decided to start this benchmark at that size, using a repeatable folder structure and controlled files.
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz processor with 4 cores.**
+**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores.**
 
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
@@ -16,7 +16,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 | `gaze`     | 3019 ms | 52195328 |  77991936 |  50102272 |
 | `watchboy` | 1944 ms | 52674560 | 101081088 |  74854400 |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz processor with 2 cores.**
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
 
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
@@ -28,7 +28,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 
 A much more typical project -- think monorepo -- when watching only project files without dependencies can be around 320 files in 20 directories. I simulated that as well in a similar manner.
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz processor with 4 cores.**
+**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores.**
 
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
@@ -36,7 +36,7 @@ A much more typical project -- think monorepo -- when watching only project file
 | `gaze`     | 239 ms | 19165184 | 32854016 |  4784128 |
 | `watchboy` | 120 ms | 18595840 | 30732288 |  4575232 |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz processor with 2 cores.**
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
 
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
