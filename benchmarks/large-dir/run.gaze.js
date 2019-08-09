@@ -2,12 +2,13 @@
 const path = require('path');
 const root = require('rootrequire');
 const { Gaze } = require('gaze');
+const mem = require('./memory.js');
 
 const cwd = path.resolve(root, 'temp');
+mem.init();
+
 const start = Date.now();
-
 const gaze = new Gaze(['**/*', '!.*'], { cwd });
-
 gaze.on('ready', () => {
   const end = Date.now();
   let files = 0;
@@ -29,12 +30,7 @@ gaze.on('ready', () => {
   console.log(`found ${dirs} directories`);
   console.log(`ready in ${end - start} ms`);
 
-  global.gc();
-  const memory = process.memoryUsage();
-  console.log('memory: heapTotal', memory.heapTotal);
-  console.log('memory: heapUsed', memory.heapUsed);
-  console.log('memory: external', memory.external);
-  console.log('memory: rss', memory.rss);
+  mem.inspect();
 
   process.exit(0);
 });
