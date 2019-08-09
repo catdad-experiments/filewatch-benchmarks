@@ -24,9 +24,9 @@ After installing some heavyweight node modules like jest, babel, and some others
 | `gaze`     |  952 ms | 51146752 |  66297856 | 31518720 |
 | `watchboy` |  822 ms | 51101696 |  84873216 | 48832512 |
 
-## Watching a small directory
+## Watching a medium directory
 
-A much more typical project, when watching only project files without dependencies, can be around 320 files in 20 directories. I simulated that as well in a similar manner.
+A much more typical project -- think monorepo -- when watching only project files without dependencies can be around 320 files in 20 directories. I simulated that as well in a similar manner.
 
 **_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz processor with 4 cores.**
 
