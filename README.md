@@ -13,7 +13,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 2960 ms | 94093312 | 144220160 | 120467456 |
-| `gaze` | 3019 ms | 52195328 | 77991936 | 50102272 |
+| `gaze`     | 3019 ms | 52195328 | 77991936 | 50102272 |
 | `watchboy` | 1944 ms | 52674560 | 101081088 | 74854400 |
 
 ## Watching a small directory
@@ -25,5 +25,5 @@ A much more typical project, when watching only project files without dependenci
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 235 ms | 28557312 | 34816000 | 12230656 |
-| `gaze` | 239 ms | 19165184 | 32854016 | 4784128 |
+| `gaze`     | 239 ms | 19165184 | 32854016 | 4784128 |
 | `watchboy` | 120 ms | 18595840 | 30732288 | 4575232 |
