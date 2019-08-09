@@ -13,8 +13,16 @@ After installing some heavyweight node modules like jest, babel, and some others
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 2960 ms | 94093312 | 144220160 | 120467456 |
-| `gaze`     | 3019 ms | 52195328 | 77991936 | 50102272 |
-| `watchboy` | 1944 ms | 52674560 | 101081088 | 74854400 |
+| `gaze`     | 3019 ms | 52195328 |  77991936 |  50102272 |
+| `watchboy` | 1944 ms | 52674560 | 101081088 |  74854400 |
+
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz processor with 2 cores.**
+
+| Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
+| --- | ---: | ---: | ---: | ---: |
+| `chokidar` | 1465 ms | 80986112 | 116125696 | 82251776 |
+| `gaze`     |  952 ms | 51146752 |  66297856 | 31518720 |
+| `watchboy` |  822 ms | 51101696 |  84873216 | 48832512 |
 
 ## Watching a small directory
 
@@ -25,5 +33,13 @@ A much more typical project, when watching only project files without dependenci
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 235 ms | 28557312 | 34816000 | 12230656 |
-| `gaze`     | 239 ms | 19165184 | 32854016 | 4784128 |
-| `watchboy` | 120 ms | 18595840 | 30732288 | 4575232 |
+| `gaze`     | 239 ms | 19165184 | 32854016 |  4784128 |
+| `watchboy` | 120 ms | 18595840 | 30732288 |  4575232 |
+
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz processor with 2 cores.**
+
+| Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
+| --- | ---: | ---: | ---: | ---: |
+| `chokidar` | 120 ms | 17547264 | 44220416 | 10330112 |
+| `gaze`     | 162 ms | 17068032 | 39022592 |  4284416 |
+| `watchboy` |  63 ms | 17022976 | 39690240 |  3543040 |
