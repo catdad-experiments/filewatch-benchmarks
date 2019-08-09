@@ -14,10 +14,23 @@ const exec = (filepath, stdio = 'inherit') => {
   });
 };
 
+const benchmarkFilters = process.argv.slice(2);
+
 const start = Date.now();
 (async () => {
   console.log(`${process.platform}, ${os.cpus()[0].model.trim()}, ${os.cpus()[0].speed}, ${os.cpus().length} cores`);
-  const tests = fs.readdirSync(path.resolve(root, 'benchmarks'));
+  const tests = fs.readdirSync(path.resolve(root, 'benchmarks')).filter(name => {
+    if (benchmarkFilters.length === 0) {
+      return true;
+    }
+
+    if (benchmarkFilters.includes(name)) {
+      return true;
+    }
+
+    console.log(chalk.yellow(`skipping ${name} benchmark`));
+    return false;
+  });
 
   for (let test of tests) {
     console.log(chalk.gray('=============================================='));
