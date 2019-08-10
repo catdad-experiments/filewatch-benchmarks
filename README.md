@@ -43,3 +43,13 @@ A much more typical project -- think monorepo -- when watching only project file
 | `chokidar` | 120 ms | 17547264 | 44220416 | 10330112 |
 | `gaze`     | 162 ms | 17068032 | 39022592 |  4284416 |
 | `watchboy` |  63 ms | 17022976 | 39690240 |  3543040 |
+
+## Memory footprint
+
+This one is more for fun, but I wanted to see how much memory is needed to simply require each module and have it be present at runtime. Here's the breakdown:
+
+| Library | Module size |
+| --- | ---: |
+| `chokidar` | 1863680 |
+| `gaze`     | 3518464 |
+| `watchboy` | 1560576 |
