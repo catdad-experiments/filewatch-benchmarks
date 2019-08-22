@@ -40,6 +40,8 @@ const start = Date.now();
     const silent = file => exec(path.resolve(root, 'benchmarks', test, file), 'ignore');
     const files = fs.readdirSync(path.resolve(root, 'benchmarks', test));
 
+    const def = require(path.resolve(root, 'benchmarks', test, 'definition.js'));
+
     if (files.includes('teardown.js')) {
       console.log(chalk.gray('running cleanup'));
       await run('teardown.js');
@@ -55,26 +57,41 @@ const start = Date.now();
     const runs = files.filter(f => /^run/.test(f));
 
     for (let candidate of runs) {
-      console.log(chalk.yellow(`CANDIDATE ${candidate}, ${test}`));
-      // perform a silent run first, just in case
-      await silent(candidate);
-      console.log(chalk.gray('.....................'));
-      await run(candidate);
-      console.log(chalk.gray('.....................'));
-      await run(candidate);
-      console.log(chalk.gray('.....................'));
-      await run(candidate);
-      console.log(chalk.gray('----------------------------------------------'));
+
+      if (def.silentCount > 0) {
+        // perform a silent run first, just in case
+        await silent(candidate);
+      }
+
+      if (def.preCount > 0) {
+        console.log(chalk.yellow(`CANDIDATE PRE-RUN ${candidate}, ${test}`));
+
+        for (let i = 0; i < def.preCount; i++) {
+          console.log(chalk.gray('.....................'));
+          await run(candidate);
+        }
+
+        console.log(chalk.gray('----------------------------------------------'));
+      }
     }
 
     for (let candidate of runs) {
-      console.log(chalk.yellow(`RERUN ${candidate}, ${test}`));
-      console.log(chalk.gray('.....................'));
-      const [color, reset] = chalk.cyan('|').split('|');
-      process.stdout.write(color);
-      await run(candidate);
-      process.stdout.write(reset);
-      console.log(chalk.gray('----------------------------------------------'));
+      if (def.count > 0) {
+        console.log(chalk.yellow(`CANDIDATE RUN ${candidate}, ${test}`));
+
+        for (let i = 0; i < def.count; i++) {
+          console.log(chalk.gray('.....................'));
+          const [color, reset] = chalk.cyan('|').split('|');
+          process.stdout.write(color);
+          await run(candidate);
+          process.stdout.write(reset);
+          console.log(chalk.gray('----------------------------------------------'));
+        }
+      }
+    }
+
+    if (def.teardown) {
+      await def.teardown();
     }
 
     if (files.includes('teardown.js')) {
