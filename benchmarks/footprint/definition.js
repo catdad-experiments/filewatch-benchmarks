@@ -1,5 +1,5 @@
 module.exports = {
   silentCount: 0,
-  preCount: 1,
+  warmupCount: 1,
   count: 1
 };

@@ -57,16 +57,14 @@ const start = Date.now();
     const runs = files.filter(f => /^run/.test(f));
 
     for (let candidate of runs) {
-
       if (def.silentCount > 0) {
-        // perform a silent run first, just in case
         await silent(candidate);
       }
 
-      if (def.preCount > 0) {
-        console.log(chalk.yellow(`CANDIDATE PRE-RUN ${candidate}, ${test}`));
+      if (def.warmupCount > 0) {
+        console.log(chalk.yellow(`CANDIDATE WARMUP ${candidate}, ${test}`));
 
-        for (let i = 0; i < def.preCount; i++) {
+        for (let i = 0; i < def.warmupCount; i++) {
           console.log(chalk.gray('.....................'));
           await run(candidate);
         }
