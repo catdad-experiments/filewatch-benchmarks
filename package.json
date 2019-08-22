@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "chalk": "^2.4.2",
+    "count-files": "^2.6.2",
     "del": "^5.0.0",
     "get-folder-size": "^2.0.1",
     "lodash.padstart": "^4.6.1",
