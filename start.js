@@ -93,11 +93,6 @@ const start = Date.now();
     if (def.teardown) {
       await def.teardown();
     }
-
-    if (files.includes('teardown.js')) {
-      console.log(chalk.gray('running cleanup'));
-      await run('teardown.js');
-    }
   }
 })()
 .then(() => console.log(`finished in ${Date.now() - start}ms`))
