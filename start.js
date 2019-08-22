@@ -42,9 +42,9 @@ const start = Date.now();
 
     const def = require(path.resolve(root, 'benchmarks', test, 'definition.js'));
 
-    if (files.includes('teardown.js')) {
+    if (def.teardown) {
       console.log(chalk.gray('running cleanup'));
-      await run('teardown.js');
+      await def.teardown();
     }
 
     if (files.includes('setup.js')) {
@@ -89,6 +89,7 @@ const start = Date.now();
     }
 
     if (def.teardown) {
+      console.log(chalk.gray('running cleanup'));
       await def.teardown();
     }
   }
