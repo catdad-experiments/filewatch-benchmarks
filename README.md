@@ -53,3 +53,13 @@ This one is more for fun, but I wanted to see how much memory is needed to simpl
 | `chokidar` | 1863680 |
 | `gaze`     | 3518464 |
 | `watchboy` | 1560576 |
+
+## Download size
+
+An extension of the footprint, this metric measures how many files are installed as a result of each dependency, as well as the total size of each dependency.
+
+| Library | Packages | Directories | Files | Total size |
+| --- | ---: | ---: | ---: | ---: |
+| `chokidar` | 14 | 18 | 78 | 338 kB |
+| `gaze`     | 14 | 19 | 1111 | 1.6 MB |
+| `watchboy` | 14 | 17 | 81 | 346 kB |
