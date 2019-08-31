@@ -2,7 +2,9 @@
 
 With the [fanfare surrounding the release](https://paulmillr.com/posts/chokidar-3-save-32tb-of-traffic/) of [`chokidar@3.0.0`](https://github.com/paulmillr/chokidar), and the [subsequent](https://github.com/paulmillr/chokidar/issues/873) [long](https://github.com/paulmillr/chokidar/issues/860) [list](https://github.com/paulmillr/chokidar/issues/871) of [new bugs](https://github.com/paulmillr/chokidar/issues/865) which affected some of [my projects](https://github.com/catdad/electronmon), I decided to take a look at the issue of watching files. Long story short, [`watchboy`](https://github.com/catdad/watchboy) was born and he's magnificent!
 
-To make sure that he's doing a good job watching after your files, I created this benchmark suite. While I wrote and ran it, I am making it available to everyone so that you can check my work. Feel free to run it and submit more test cases that you want to see compared. With that said, let's talk about results:
+To make sure that he's doing a good job watching after your files, I created this benchmark suite. While I wrote and ran it, I am making it available to everyone so that you can check my work. Feel free to run it and submit more test cases that you want to see compared. With that said, let's talk about results.
+
+_Note: all memory measurements were taken after garbage collection._
 
 ## Watching a large directory
 
@@ -10,7 +12,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 
 **_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores.**
 
-| Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
+| Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 3362 ms | 88.3 MB |  138 MB |  115 MB |
 | `gaze`     | 3255 ms | 51.1 MB | 74.3 MB | 49.9 MB |
@@ -18,7 +20,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 
 **_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
 
-| Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
+| Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 1562 ms | 78.9 MB |  115 MB | 81.2 MB |
 | `gaze`     | 1067 ms | 51.7 MB | 68.3 MB | 32.7 MB |
@@ -30,7 +32,7 @@ A much more typical project -- think monorepo -- when watching only project file
 
 **_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores.**
 
-| Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
+| Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 240 ms | 19.1 MB | 34.0 MB | 11.4 MB |
 | `gaze`     | 245 ms | 17.6 MB | 28.7 MB | 4.42 MB |
@@ -38,7 +40,7 @@ A much more typical project -- think monorepo -- when watching only project file
 
 **_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
 
-| Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
+| Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 165 ms | 17.5 MB | 44 MB   | 9.76 MB |
 | `gaze`     | 176 ms | 17.1 MB | 40.3 MB | 4.74 MB |
