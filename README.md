@@ -18,13 +18,11 @@ After installing some heavyweight node modules like jest, babel, and some others
 
 **_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
 
-_TODO: results are outdated_
-
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
-| `chokidar` | 1465 ms | 80986112 | 116125696 | 82251776 |
-| `gaze`     |  952 ms | 51146752 |  66297856 | 31518720 |
-| `watchboy` |  822 ms | 51101696 |  84873216 | 48832512 |
+| `chokidar` | 1562 ms | 78.9 MB |  115 MB | 81.2 MB |
+| `gaze`     | 1067 ms | 51.7 MB | 68.3 MB | 32.7 MB |
+| `watchboy` |  840 ms | 28 MB   | 55.9 MB | 22.7 MB |
 
 ## Watching a medium directory
 
@@ -38,15 +36,13 @@ A much more typical project -- think monorepo -- when watching only project file
 | `gaze`     | 245 ms | 17.6 MB | 28.7 MB | 4.42 MB |
 | `watchboy` |  85 ms | 17.5 MB | 27.7 MB | 5.09 MB |
 
-_TODO: results are outdated_
-
 **_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
 
 | Library | Time to ready | Heap memory (after GC) | RSS memory (after GC) | Retained memory (after GC) |
 | --- | ---: | ---: | ---: | ---: |
-| `chokidar` | 120 ms | 17547264 | 44220416 | 10330112 |
-| `gaze`     | 162 ms | 17068032 | 39022592 |  4284416 |
-| `watchboy` |  63 ms | 17022976 | 39690240 |  3543040 |
+| `chokidar` | 165 ms | 17.5 MB | 44 MB   | 9.76 MB |
+| `gaze`     | 176 ms | 17.1 MB | 40.3 MB | 4.74 MB |
+| `watchboy` |  90 ms | 17 MB   | 38.8 MB | 5.64 MB |
 
 ## Memory footprint
 
@@ -54,9 +50,12 @@ This one is more for fun, but I wanted to see how much memory is needed to simpl
 
 | Library | Module size |
 | --- | ---: |
-| `chokidar` | 1.83 MB |
-| `gaze`     | 3.49 MB |
-| `watchboy` | 1.56 MB |
+| `chokidar` (Windows) | 1.83 MB |
+| `chokidar` (Linux)   | 1.72 MB |
+| `gaze` (Windows)     | 3.49 MB |
+| `gaze` (Linux)       | 2.38 MB |
+| `watchboy` (Windows) | 1.56 MB |
+| `watchboy` (Linux)   | 467 kB  |
 
 ## Download size
 
