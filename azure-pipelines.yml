@@ -9,18 +9,21 @@ strategy:
       imageName: 'ubuntu-16.04'
       nodeVersion: 10.x
       script: |
+        cat /etc/os-release
         npm install
         npm start
     macos:
       imageName: 'macOS-10.14' # Mojave
       nodeVersion: 10.x
       script: |
+        system_profiler SPSoftwareDataType
         npm install
         npm start
     windows:
       imageName: 'windows-2019'
       nodeVersion: 10.x
       script: |
+        call systeminfo
         call npm install
         call npm start
 
