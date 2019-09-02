@@ -24,7 +24,12 @@ module.exports = async name => {
 
   const result = await countFiles(path.resolve(dir, 'node_modules'));
 
-  console.log(result.dirs, 'directories');
-  console.log(result.files, 'files');
-  console.log('total size:', pretty(result.bytes));
+  const output = require('../../lib/output.js');
+
+  output({
+    directories: result.dirs,
+    files: result.files,
+    size: result.bytes,
+    'size:human': pretty(result.bytes)
+  });
 };
