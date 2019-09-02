@@ -1,0 +1,46 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-16.04'
+      nodeVersion: 10.x
+      script: |
+        cat /etc/os-release
+        npm install
+        echo =======================================================
+        npm start
+    macos:
+      imageName: 'macOS-10.14' # Mojave
+      nodeVersion: 10.x
+      script: |
+        system_profiler SPSoftwareDataType
+        npm install
+        echo =======================================================
+        npm start
+    windows:
+      imageName: 'windows-2019'
+      nodeVersion: 10.x
+      script: |
+        call systeminfo
+        call npm install
+        echo =======================================================
+        call npm start
+
+pool:
+  vmImage: $(imageName)
+
+variables:
+  FORCE_COLOR: '1'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: $(nodeVersion)
+    displayName: 'Install Node.js'
+
+  - script: $(script)
+    displayName: 'benchmark'
