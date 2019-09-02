@@ -18,6 +18,9 @@ strategy:
 pool:
  vmImage: $(imageName)
 
+variables:
+ FORCE_COLOR: '1'
+
 steps:
 - task: NodeTool@0
   inputs:
