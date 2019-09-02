@@ -13,7 +13,7 @@ _Note: all memory measurements were taken after garbage collection._
 
 After installing some heavyweight node modules like jest, babel, and some others, I ended up with roughly 6400 files in 400 directories. I decided to start this benchmark at that size, using a repeatable folder structure and controlled files.
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores.**
+**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz, 4 cores.**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -21,13 +21,21 @@ After installing some heavyweight node modules like jest, babel, and some others
 | `gaze`     | 3255 ms | 51.1 MB | 74.3 MB | 49.9 MB |
 | `watchboy` |  760 ms | 29.1 MB | 44.8 MB | 22.3 MB |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz, 2 cores.**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
 | `chokidar` | 1562 ms | 78.9 MB |  115 MB | 81.2 MB |
 | `gaze`     | 1067 ms | 51.7 MB | 68.3 MB | 32.7 MB |
 | `watchboy` |  840 ms | 28 MB   | 55.9 MB | 22.7 MB |
+
+**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores
+
+| Library | Time to ready | Heap memory | RSS memory | Retained memory |
+| --- | ---: | ---: | ---: | ---: |
+| `chokidar` |  748 ms | 49 MB   | 73.9 MB | 44.9 MB |
+| `gaze`     | 2129 ms | 51.7 MB | 73.5 MB | 41.6 MB |
+| `watchboy` | 1215 ms | 29.1 MB | 55.3 MB | 26.7 MB |
 
 ## Watching a medium directory
 
@@ -49,6 +57,14 @@ A much more typical project -- think monorepo -- when watching only project file
 | `gaze`     | 176 ms | 17.1 MB | 40.3 MB | 4.74 MB |
 | `watchboy` |  90 ms | 17 MB   | 38.8 MB | 5.64 MB |
 
+**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores
+
+| Library | Time to ready | Heap memory | RSS memory | Retained memory |
+| --- | ---: | ---: | ---: | ---: |
+| `chokidar` |  69 ms | 16.5 MB | 32.7 MB | 3.58 MB |
+| `gaze`     | 266 ms | 17.6 MB | 36.3 MB | 4.37 MB |
+| `watchboy` | 166 ms | 18.6 MB | 41.4 MB | 12.7 MB |
+
 ## Memory footprint
 
 This one is more for fun, but I wanted to see how much memory is needed to simply require each module and have it be present at runtime. Here's the breakdown:
@@ -57,10 +73,13 @@ This one is more for fun, but I wanted to see how much memory is needed to simpl
 | --- | ---: |
 | `chokidar` (Windows) | 1.83 MB |
 | `chokidar` (Linux)   | 1.72 MB |
+| `chokidar` (MacOS)   | 2.11 MB |
 | `gaze` (Windows)     | 3.49 MB |
 | `gaze` (Linux)       | 2.38 MB |
+| `gaze` (MacOS)       | 4.92 MB |
 | `watchboy` (Windows) | 1.56 MB |
 | `watchboy` (Linux)   | 467 kB  |
+| `watchboy` (MacOS)   | 2.20 MB |
 
 ## Download size
 
