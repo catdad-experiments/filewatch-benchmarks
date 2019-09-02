@@ -11,6 +11,7 @@ strategy:
       script: |
         cat /etc/os-release
         npm install
+        echo =======================================================
         npm start
     macos:
       imageName: 'macOS-10.14' # Mojave
@@ -18,6 +19,7 @@ strategy:
       script: |
         system_profiler SPSoftwareDataType
         npm install
+        echo =======================================================
         npm start
     windows:
       imageName: 'windows-2019'
@@ -25,6 +27,7 @@ strategy:
       script: |
         call systeminfo
         call npm install
+        echo =======================================================
         call npm start
 
 pool:
