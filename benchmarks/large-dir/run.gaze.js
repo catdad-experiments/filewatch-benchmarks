@@ -26,11 +26,15 @@ gaze.on('ready', () => {
     }
   }(gaze.watched()));
 
-  console.log(`found ${files} files`);
-  console.log(`found ${dirs} directories`);
-  console.log(`ready in ${end - start} ms`);
+  const output = require('../../lib/output.js');
+  const memory = mem.inspect();
 
-  mem.inspect();
+  output(Object.assign({
+    files: files,
+    directories: dirs,
+    time: end - start,
+    'time:human': `${end - start} ms`
+  }, memory));
 
   process.exit(0);
 });
