@@ -13,6 +13,7 @@
     "count-files": "^2.6.2",
     "del": "^5.0.0",
     "eslint": "^5.16.0",
+    "fancy-text-table": "^1.0.0",
     "get-folder-size": "^2.0.1",
     "lodash.padstart": "^4.6.1",
     "mkdirp": "^0.5.1",
