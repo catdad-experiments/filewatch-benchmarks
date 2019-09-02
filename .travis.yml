@@ -14,6 +14,8 @@ matrix:
         - system_profiler SPSoftwareDataType
     - os: windows
       node_js: 10
+      env:
+        - FORCE_COLOR=1
       before_install:
         # get version
         - systeminfo
