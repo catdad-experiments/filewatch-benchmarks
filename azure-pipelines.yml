@@ -4,30 +4,37 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 strategy:
- matrix:
-  linux:
-    imageName: 'ubuntu-16.04'
-    nodeVersion: 10.x
-  macos:
-    imageName: 'macOS-10.14' # Mojave
-    nodeVersion: 10.x
-  windows:
-    imageName: 'windows-2019'
-    nodeVersion: 10.x
+  matrix:
+    linux:
+      imageName: 'ubuntu-16.04'
+      nodeVersion: 10.x
+      script: |
+        npm install
+        npm start
+    macos:
+      imageName: 'macOS-10.14' # Mojave
+      nodeVersion: 10.x
+      script: |
+        npm install
+        npm start
+    windows:
+      imageName: 'windows-2019'
+      nodeVersion: 10.x
+      script: |
+        call npm install
+        call npm start
 
 pool:
- vmImage: $(imageName)
+  vmImage: $(imageName)
 
 variables:
- FORCE_COLOR: '1'
+  FORCE_COLOR: '1'
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: $(nodeVersion)
-  displayName: 'Install Node.js'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: $(nodeVersion)
+    displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm start
-  displayName: 'benchmark'
+  - script: $(script)
+    displayName: 'benchmark'
