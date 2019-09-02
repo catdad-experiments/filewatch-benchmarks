@@ -22,13 +22,24 @@ module.exports = async name => {
 
   execSync('npm install', { cwd: dir, stdio: 'inherit' });
 
-  const result = await countFiles(path.resolve(dir, 'node_modules'));
+  let packages = 0;
+
+  const result = await countFiles(path.resolve(dir, 'node_modules'), {
+    ignore: file => {
+      if (/package\.json/.test(file)) {
+        packages += 1;
+      }
+
+      return false;
+    }
+  });
 
   const output = require('../../lib/output.js');
 
   output({
     directories: result.dirs,
     files: result.files,
+    packages: packages,
     size: result.bytes,
     'size:human': pretty(result.bytes)
   });
