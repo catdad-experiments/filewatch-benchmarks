@@ -6,7 +6,7 @@
   "dependencies": {
     "chokidar": "^3.0.2",
     "gaze": "^1.1.3",
-    "watchboy": "https://github.com/catdad/watchboy/tarball/b52332945207a1518a7f8ed44ff439e03c0901fa"
+    "watchboy": "https://github.com/catdad/watchboy/tarball/72087844f320c7421c5ba0e9aa5085321b1217a6"
   },
   "devDependencies": {
     "chalk": "^2.4.2",
