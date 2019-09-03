@@ -13,7 +13,7 @@ _Note: all memory measurements were taken after garbage collection._
 
 After installing some heavyweight node modules like jest, babel, and some others, I ended up with roughly 6400 files in 400 directories. I decided to start this benchmark at that size, using a repeatable folder structure and controlled files.
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz, 4 cores.**
+**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz, 4 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -21,7 +21,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 | `gaze`     | 3255 ms | 51.1 MB | 74.3 MB | 49.9 MB |
 | `watchboy` |  760 ms | 29.1 MB | 44.8 MB | 22.3 MB |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz, 2 cores.**
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz, 2 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -29,7 +29,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 | `gaze`     | 1067 ms | 51.7 MB | 68.3 MB | 32.7 MB |
 | `watchboy` |  840 ms | 28 MB   | 55.9 MB | 22.7 MB |
 
-**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores
+**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -41,7 +41,7 @@ After installing some heavyweight node modules like jest, babel, and some others
 
 A much more typical project -- think monorepo -- when watching only project files without dependencies can be around 320 files in 20 directories. I simulated that as well in a similar manner.
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores.**
+**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -49,7 +49,7 @@ A much more typical project -- think monorepo -- when watching only project file
 | `gaze`     | 245 ms | 17.6 MB | 28.7 MB | 4.42 MB |
 | `watchboy` |  85 ms | 17.5 MB | 27.7 MB | 5.09 MB |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores.**
+**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -57,7 +57,7 @@ A much more typical project -- think monorepo -- when watching only project file
 | `gaze`     | 176 ms | 17.1 MB | 40.3 MB | 4.74 MB |
 | `watchboy` |  90 ms | 17 MB   | 38.8 MB | 5.64 MB |
 
-**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores
+**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
