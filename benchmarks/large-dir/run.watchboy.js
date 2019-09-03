@@ -20,11 +20,9 @@ watchboy(['**/*', '!.*'], { cwd, persistent: false })
 })
 .on('ready', () => {
   const end = Date.now();
-
-  const output = require('../../lib/output.js');
   const memory = mem.inspect();
 
-  output(Object.assign({
+  require('../../lib/output.js')(Object.assign({
     files: files,
     directories: dirs,
     time: end - start,

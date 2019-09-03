@@ -11,6 +11,8 @@ const start = Date.now();
 const gaze = new Gaze(['**/*', '!.*'], { cwd });
 gaze.on('ready', () => {
   const end = Date.now();
+  const memory = mem.inspect();
+
   let files = 0;
   let dirs = 0;
 
@@ -26,10 +28,7 @@ gaze.on('ready', () => {
     }
   }(gaze.watched()));
 
-  const output = require('../../lib/output.js');
-  const memory = mem.inspect();
-
-  output(Object.assign({
+  require('../../lib/output.js')(Object.assign({
     files: files,
     directories: dirs,
     time: end - start,
