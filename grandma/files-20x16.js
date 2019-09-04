@@ -25,13 +25,11 @@ module.exports = {
   },
   test: function(cb) {
     try {
-      this.start('one');
       const { stdout, stderr, error } = spawnSync(process.execPath, ['--expose-gc', getFile()], {
         env: Object.assign({}, process.env, {
           BENCHMARK_FORMAT: 'json'
         })
       });
-      this.end('one');
 
       if (error) {
         throw error;
@@ -44,6 +42,11 @@ module.exports = {
       const result = JSON.parse(stdout.toString());
 
       this.category(result.module);
+
+      this.metric('heap total', result['memory:heapTotal']);
+      this.metric('heap retained', result['memory:heapRetained']);
+      this.metric('rss total', result['memory:rss']);
+      this.metric('rss retained', result['memory:rssRetained']);
     } catch (e) {
       return cb(e);
     }
