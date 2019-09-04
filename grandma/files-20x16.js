@@ -43,6 +43,7 @@ module.exports = {
 
       this.category(result.module);
 
+      this.metric('time to ready', result['time']);
       this.metric('heap total', result['memory:heapTotal']);
       this.metric('heap retained', result['memory:heapRetained']);
       this.metric('rss total', result['memory:rss']);
