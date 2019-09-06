@@ -42,7 +42,7 @@ function serializer(name, result) {
 }
 
 module.exports = {
-  duration: '2s',
+  duration: '20s',
   serializer,
   test: function(cb) {
     try {
