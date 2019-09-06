@@ -51,7 +51,7 @@ function filesResultsSerializer(name, categories) {
 
     const [ , { categories } ] = await Promise.all([
       promisify(grandma.run)({
-        duration: '30s', // TODO get from file
+        duration: test.duration,
         concurrent: 1,
         test: {
           path: file,
