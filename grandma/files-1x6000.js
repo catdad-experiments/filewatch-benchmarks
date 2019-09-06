@@ -1,6 +1,6 @@
 module.exports = require('../lib/grandma-filetest-wrapper.js')({
-  dirCount: 20,
-  fileCount: 16,
+  dirCount: 1,
+  fileCount: 6000,
   libs: ['chokidar', 'watchboy'],
   duration: '2m'
 });
