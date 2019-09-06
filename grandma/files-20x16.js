@@ -21,7 +21,7 @@ module.exports = {
   beforeAll: cb => {
     clean();
     setup(20, 16);
-    cb();
+    setTimeout(() => cb(), 1);
   },
   test: function(cb) {
     try {
@@ -56,6 +56,6 @@ module.exports = {
   },
   afterAll: cb => {
     clean();
-    cb();
+    setTimeout(() => cb(), 1);
   }
 };
