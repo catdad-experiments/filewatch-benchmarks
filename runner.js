@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const os = require('os');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
@@ -14,6 +15,9 @@ const files = fs.readdirSync(path.resolve(root, 'grandma'))
 const filter = process.argv.slice(2);
 
 (async function () {
+  // print test machine info
+  console.log(`${process.platform}, ${os.cpus()[0].model.trim()}, ${os.cpus()[0].speed}, ${os.cpus().length} cores`);
+
   for (let file of files) {
     const name = path.basename(file).replace(path.extname(file), '');
 
