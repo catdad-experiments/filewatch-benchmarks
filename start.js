@@ -1,4 +1,4 @@
-/* jshint node: true, esversion: 6 */
+/* eslint-disable no-console */
 const { spawn } = require('child_process');
 const os = require('os');
 const fs = require('fs');
