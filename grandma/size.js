@@ -25,7 +25,7 @@ async function getResults(name) {
     }
   }));
 
-  execSync('npm install', { cwd: dir, stdio: 'inherit' });
+  execSync('npm install', { cwd: dir, stdio: 'ignore' });
 
   let packages = 0;
 
