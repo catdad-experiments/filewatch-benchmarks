@@ -11,10 +11,18 @@ const files = fs.readdirSync(path.resolve(root, 'grandma'))
 .filter(f => /\.js$/.test(f))
 .map(f => path.resolve(root, 'grandma', f));
 
+const filter = process.argv.slice(2);
+
 (async function () {
   for (let file of files) {
-    const test = require(file);
     const name = path.basename(file).replace(path.extname(file), '');
+
+    if (filter.length && !filter.includes(name)) {
+      console.log(`skipping ${name}`);
+      continue;
+    }
+
+    const test = require(file);
 
     console.log(`running ${name} for ${test.duration}...`);
 
