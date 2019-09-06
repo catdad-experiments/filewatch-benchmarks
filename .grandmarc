@@ -1,0 +1,6 @@
+{
+    "directory": "grandma",
+    "threads": 1,
+    "concurrent": 1,
+    "duration": "30s"
+}
