@@ -13,23 +13,11 @@ _Note: all memory measurements were taken after garbage collection._
 
 Tests are run in Azure Pipelines, for repeatability. The following specs are used (I will simply be referring to these machines as Windows, Linux and MacOS below):
 
-### Windows
-
-* Microsoft Windows Server 2019 Datacenter
-* Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
-* 2 cores
-
-### Linux
-
-* Ubuntu 16.04.6 LTS
-* Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
-* 2 cores
-
-### MacOS
-
-* macOS 10.14.6
-* Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz
-* 4 cores
+| OS | Processor | Cores |
+| :--- | :--- | :--- |
+| Microsoft Windows Server 2019 Datacenter | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 |
+| Ubuntu 16.04.6 LTS | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 |
+| macOS 10.14.6 | Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz | 4 |
 
 ## Typical large install of `node_modules`
 
@@ -37,65 +25,65 @@ After installing some heavyweight node modules, including ones like `jest` and `
 
 ### Windows
 
-| Library    |  Ready Rn  |  Retained Heap  |  Retained RSS  |
-| ---        | ---:       | ---:            | ---:           |
-| `chokidar` | 3362 ms | 88.3 MB |  138 MB |  115 MB |
-| `gaze`     | 3255 ms | 51.1 MB | 74.3 MB | 49.9 MB |
-| `watchboy` |  760 ms | 29.1 MB | 44.8 MB | 22.3 MB |
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  3467.31ms  |  70.8 MB        |  114 MB        |
+| `gaze`     |  2740.80ms  |  37.1 MB        |  46.4 MB       |
+| `watchboy` |  881.00ms   |  16 MB          |  21.6 MB       |
 
-**_Test machine_: Ubuntu 16.04.6, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz, 2 cores**
+### Linux
 
-| Library | Time to ready | Heap memory | RSS memory | Retained memory |
-| --- | ---: | ---: | ---: | ---: |
-| `chokidar` | 1562 ms | 78.9 MB |  115 MB | 81.2 MB |
-| `gaze`     | 1067 ms | 51.7 MB | 68.3 MB | 32.7 MB |
-| `watchboy` |  840 ms | 28 MB   | 55.9 MB | 22.7 MB |
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  1946.24ms  |  74.1 MB        |  88.9 MB       |
+| `gaze`     |  1138.32ms  |  36.3 MB        |  35.8 MB       |
+| `watchboy` |  717.04ms   |  16.5 MB        |  22.5 MB       |
 
-**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores**
+### MacOS
 
-| Library | Time to ready | Heap memory | RSS memory | Retained memory |
-| --- | ---: | ---: | ---: | ---: |
-| `chokidar` |  748 ms | 49 MB   | 73.9 MB | 44.9 MB |
-| `gaze`     | 2129 ms | 51.7 MB | 73.5 MB | 41.6 MB |
-| `watchboy` | 1215 ms | 29.1 MB | 55.3 MB | 26.7 MB |
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  579.52ms   |  39.1 MB        |  48 MB         |
+| `gaze`     |  1579.90ms  |  35.1 MB        |  37.8 MB       |
+| `watchboy` |  926.40ms   |  17.3 MB        |  25.6 MB       |
 
-## Watching a medium directory
+## Typical large project
 
 A much more typical project -- think monorepo -- when watching only project files without dependencies can be around 320 files in 20 directories. I simulated that as well in a similar manner.
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz with 4 cores**
+### Windows
 
-| Library | Time to ready | Heap memory | RSS memory | Retained memory |
-| --- | ---: | ---: | ---: | ---: |
-| `chokidar` | 240 ms | 19.1 MB | 34.0 MB | 11.4 MB |
-| `gaze`     | 245 ms | 17.6 MB | 28.7 MB | 4.42 MB |
-| `watchboy` |  85 ms | 17.5 MB | 27.7 MB | 5.09 MB |
+| Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
+| ---        | ---:       | ---:            | ---: | ---:    |
+| `chokidar` |  252.52ms  |  15.2 MB        |  11.6 MB       |
+| `gaze`     |  258.33ms  |  5.05 MB        |  5.99 MB       |
+| `watchboy` |  117.67ms  |  4.74 MB        |  5.26 MB       |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz with 2 cores**
+### Linux
 
-| Library | Time to ready | Heap memory | RSS memory | Retained memory |
-| --- | ---: | ---: | ---: | ---: |
-| `chokidar` | 165 ms | 17.5 MB | 44 MB   | 9.76 MB |
-| `gaze`     | 176 ms | 17.1 MB | 40.3 MB | 4.74 MB |
-| `watchboy` |  90 ms | 17 MB   | 38.8 MB | 5.64 MB |
+| Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
+| ---        | ---:       | ---:            | ---:           |
+| `chokidar` |  178.46ms  |  15 MB          |  12.5 MB       |
+| `gaze`     |  172.20ms  |  4.67 MB        |  5.1 MB        |
+| `watchboy` |  86.60ms   |  5.81 MB        |  7.46 MB       |
 
-**_Test machine_: MacOS 10.13, running Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz, 2 cores**
+### MacOS
 
-| Library | Time to ready | Heap memory | RSS memory | Retained memory |
-| --- | ---: | ---: | ---: | ---: |
-| `chokidar` |  69 ms | 16.5 MB | 32.7 MB | 3.58 MB |
-| `gaze`     | 266 ms | 17.6 MB | 36.3 MB | 4.37 MB |
-| `watchboy` | 166 ms | 18.6 MB | 41.4 MB | 12.7 MB |
+| Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
+| ---        | ---:       | ---:            | ---:           |
+| `chokidar` |  60.81ms   |  4.57 MB        |  4.19 MB       |
+| `gaze`     |  266.00ms  |  4.72 MB        |  4.66 MB       |
+| `watchboy` |  182.63ms  |  15.9 MB        |  13.3 MB       |
 
 ## Memory footprint
 
 This one is more for fun, but I wanted to see how much memory is needed to simply require each module and have it be present at runtime. Here's the breakdown:
 
 | Library    | Windows size | Linux size | MacOS size |
-| ---------- | ---: | ---: | ---: |
-| `chokidar` | 1.83 MB | 1.72 MB | 2.11 MB |
-| `gaze`     | 3.49 MB | 2.38 MB | 4.92 MB |
-| `watchboy` | 1.56 MB | 467 kB  | 2.20 MB |
+| ---------- | ---:         | ---:       | ---:       |
+| `chokidar` | 1.63 MB      | 1.58 MB    | 2.35 MB    |
+| `gaze`     | 3.31 MB      | 2.43 MB    | 5.01 MB    |
+| `watchboy` | 1.57 MB      | 1.7 MB     | 2.15 MB    |
 
 ## Download size
 
