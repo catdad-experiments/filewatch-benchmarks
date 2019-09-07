@@ -54,7 +54,7 @@ A much more typical project -- think monorepo -- when watching only project file
 ### Windows
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
-| ---        | ---:       | ---:            | ---: | ---:    |
+| ---        | ---:       | ---:            | ---:           |
 | `chokidar` |  252.52ms  |  15.2 MB        |  11.6 MB       |
 | `gaze`     |  258.33ms  |  5.05 MB        |  5.99 MB       |
 | `watchboy` |  117.67ms  |  4.74 MB        |  5.26 MB       |
