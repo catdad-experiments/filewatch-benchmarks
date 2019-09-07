@@ -91,3 +91,24 @@ An extension of the footprint, this metric measures how many files are installed
 | `chokidar` (MacOS)   | 15 | 19 | 83   | 373 kB |
 | `gaze`               | 14 | 19 | 1111 | 1.6 MB |
 | `watchboy`           | 14 | 17 | 81   | 346 kB |
+
+## Run the benchmarks yourself
+
+The results presented here are from [pipeline runs in Azure Pipelines](https://dev.azure.com/vatev1/filewatch-benchmarks/_build/latest?definitionId=1&branchName=master). There are [pipelines in Travis-CI](https://travis-ci.com/catdad-experiments/filewatch-benchmarks) as well, showing comparable results. You can also run them yourself on your own machine if you'd like:
+
+```bash
+git clone https://github.com/catdad-experiments/filewatch-benchmarks.git
+cd filewatch-benchmarks
+npm install
+
+# run all benchmarks
+npm start
+
+# get the names of all available benchmarks
+npm run testlist
+
+# run only a single test from the above list
+npm start -- <test name>
+```
+
+All the tests themselves are defined in the `grandma` directory.
