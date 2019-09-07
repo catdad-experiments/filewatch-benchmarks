@@ -8,9 +8,9 @@ const root = require('rootrequire');
 const grandma = require('grandma');
 const through = require('through2');
 
-const files = fs.readdirSync(path.resolve(root, 'grandma'))
+const files = fs.readdirSync(path.resolve(root, 'benchmarks'))
 .filter(f => /\.js$/.test(f))
-.map(f => path.resolve(root, 'grandma', f));
+.map(f => path.resolve(root, 'benchmarks', f));
 
 const filter = process.argv.slice(2);
 

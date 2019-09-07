@@ -9,19 +9,41 @@ To make sure that he's doing a good job watching after your files, I created thi
 
 _Note: all memory measurements were taken after garbage collection._
 
-## Watching a large directory
+## Test machines
 
-After installing some heavyweight node modules like jest, babel, and some others, I ended up with roughly 6400 files in 400 directories. I decided to start this benchmark at that size, using a repeatable folder structure and controlled files.
+Tests are run in Azure Pipelines, for repeatability. The following specs are used (I will simply be referring to these machines as Windows, Linux and MacOS below):
 
-**_Test machine_: Windows 10, running an Intel(R) Core(TM) i5-3570K CPU @ 3.40GHz, 4 cores**
+### Windows
 
-| Library | Time to ready | Heap memory | RSS memory | Retained memory |
-| --- | ---: | ---: | ---: | ---: |
+* Microsoft Windows Server 2019 Datacenter
+* Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+* 2 cores
+
+### Linux
+
+* Ubuntu 16.04.6 LTS
+* Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+* 2 cores
+
+### MacOS
+
+* macOS 10.14.6
+* Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz
+* 4 cores
+
+## Typical large install of `node_modules`
+
+After installing some heavyweight node modules, including ones like `jest` and `babel`, I ended up with roughly 6400 files in 400 directories. I decided to start this benchmark at that size, using a repeatable folder structure and controlled files.
+
+### Windows
+
+| Library    |  Ready Rn  |  Retained Heap  |  Retained RSS  |
+| ---        | ---:       | ---:            | ---:           |
 | `chokidar` | 3362 ms | 88.3 MB |  138 MB |  115 MB |
 | `gaze`     | 3255 ms | 51.1 MB | 74.3 MB | 49.9 MB |
 | `watchboy` |  760 ms | 29.1 MB | 44.8 MB | 22.3 MB |
 
-**_Test machine_: Ubuntu 18.04, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz, 2 cores**
+**_Test machine_: Ubuntu 16.04.6, running an Intel Core Processor (Broadwell, IBRS) CPU @ 2.60GHz, 2 cores**
 
 | Library | Time to ready | Heap memory | RSS memory | Retained memory |
 | --- | ---: | ---: | ---: | ---: |
@@ -69,17 +91,11 @@ A much more typical project -- think monorepo -- when watching only project file
 
 This one is more for fun, but I wanted to see how much memory is needed to simply require each module and have it be present at runtime. Here's the breakdown:
 
-| Library | Module size |
-| --- | ---: |
-| `chokidar` (Windows) | 1.83 MB |
-| `chokidar` (Linux)   | 1.72 MB |
-| `chokidar` (MacOS)   | 2.11 MB |
-| `gaze` (Windows)     | 3.49 MB |
-| `gaze` (Linux)       | 2.38 MB |
-| `gaze` (MacOS)       | 4.92 MB |
-| `watchboy` (Windows) | 1.56 MB |
-| `watchboy` (Linux)   | 467 kB  |
-| `watchboy` (MacOS)   | 2.20 MB |
+| Library    | Windows size | Linux size | MacOS size |
+| ---------- | ---: | ---: | ---: |
+| `chokidar` | 1.83 MB | 1.72 MB | 2.11 MB |
+| `gaze`     | 3.49 MB | 2.38 MB | 4.92 MB |
+| `watchboy` | 1.56 MB | 467 kB  | 2.20 MB |
 
 ## Download size
 
@@ -111,4 +127,6 @@ npm run testlist
 npm start -- <test name>
 ```
 
-All the tests themselves are defined in the `grandma` directory.
+All the tests themselves are defined in the `benchmarks` directory.
+
+The benchmarks are powered by [`grandma`](https://github.com/catdad/grandma). If you want to see a different test, feel free to add it and send me a PR.
