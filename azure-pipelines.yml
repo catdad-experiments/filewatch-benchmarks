@@ -17,8 +17,13 @@ strategy:
     macos:
       imageName: 'macOS-10.14' # Mojave
       nodeVersion: 10.x
+      # increase file handles, according to watchman
+      # https://facebook.github.io/watchman/docs/install.html#mac-os-file-descriptor-limits
+      # necessary on 10.6 and earlier
       script: |
         system_profiler SPSoftwareDataType
+        sudo sysctl -w kern.maxfiles=10485760
+        sudo sysctl -w kern.maxfilesperproc=1048576
         npm install
         echo =======================================================
         npm start
