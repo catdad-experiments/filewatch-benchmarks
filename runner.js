@@ -58,6 +58,8 @@ const benchmarkStart = Date.now();
       })
     ]);
 
+    console.log(JSON.stringify(result, null, 2));
+
     console.log(test.serializer(name, result));
     console.log(`test ${name} finished in ${prettyMs(Date.now() - start)}`);
 
