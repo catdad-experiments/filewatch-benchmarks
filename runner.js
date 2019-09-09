@@ -7,6 +7,7 @@ const { promisify } = require('util');
 const root = require('rootrequire');
 const grandma = require('grandma');
 const through = require('through2');
+const prettyMs = require('pretty-ms');
 
 const files = fs.readdirSync(path.resolve(root, 'benchmarks'))
 .filter(f => /\.js$/.test(f))
@@ -28,8 +29,16 @@ const filter = process.argv.slice(2);
 
     const test = require(file);
 
+    if (test.setup) {
+      console.log(`running ${name} setup...`);
+      const start = Date.now();
+      await test.setup();
+      console.log(`setup for ${name} finished in ${prettyMs(Date.now() - start)}`);
+    }
+
     console.log(`running ${name} for ${test.duration}...`);
 
+    const start = Date.now();
     const data = through();
 
     const [ , result ] = await Promise.all([
@@ -49,6 +58,14 @@ const filter = process.argv.slice(2);
     ]);
 
     console.log(test.serializer(name, result));
+    console.log(`test ${name} finished in ${prettyMs(Date.now() - start)}`);
+
+    if (test.teardown) {
+      console.log(`running ${name} teardown...`);
+      const start = Date.now();
+      await test.setup();
+      console.log(`teardown for ${name} finished in ${prettyMs(Date.now() - start)}`);
+    }
   }
 })().then(() => {
   console.log('Finished successfully');
