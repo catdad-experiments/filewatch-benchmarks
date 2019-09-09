@@ -14,6 +14,7 @@ const files = fs.readdirSync(path.resolve(root, 'benchmarks'))
 .map(f => path.resolve(root, 'benchmarks', f));
 
 const filter = process.argv.slice(2);
+const benchmarkStart = Date.now();
 
 (async function () {
   // print test machine info
@@ -68,8 +69,8 @@ const filter = process.argv.slice(2);
     }
   }
 })().then(() => {
-  console.log('Finished successfully');
+  console.log('Finished successfully in', prettyMs(Date.now() - benchmarkStart));
 }).catch(e => {
-  console.error('Finished with error:', e);
+  console.error(`Finished in ${prettyMs(Date.now() - benchmarkStart)} with error:`, e);
   process.exitCode = 1;
 });
