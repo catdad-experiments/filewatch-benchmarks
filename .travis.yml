@@ -16,6 +16,9 @@ matrix:
         # increase file handles, according to watchman
         # https://facebook.github.io/watchman/docs/install.html#mac-os-file-descriptor-limits
         # necessary on 10.6 and earlier
+        - ulimit -n
+        - ulimit -S -n 64000
+        - ulimit -n
         - sudo sysctl -w kern.maxfiles=10485760
         - sudo sysctl -w kern.maxfilesperproc=1048576
     - os: windows
