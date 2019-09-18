@@ -16,6 +16,7 @@
     "fancy-text-table": "^1.0.0",
     "get-folder-size": "^2.0.1",
     "grandma": "https://github.com/catdad/grandma/tarball/86084d3da7fd6ac0753039f6891fdf032a33a86b",
+    "lodash.padend": "^4.6.1",
     "lodash.padstart": "^4.6.1",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.6.0",
