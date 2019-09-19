@@ -27,25 +27,25 @@ After installing some heavyweight node modules, including ones like `jest` and `
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  3467.31ms  |  70.8 MB        |  114 MB        |
-| `gaze`     |  2740.80ms  |  37.1 MB        |  46.4 MB       |
-| `watchboy` |  881.00ms   |  16 MB          |  21.6 MB       |
+| `chokidar` |  3517.94ms  |  71.6 MB        |  115 MB        |
+| `gaze`     |  2802.81ms  |  36.9 MB        |  46.9 MB       |
+| `watchboy` |  493.20ms   |  15.2 MB        |  19 MB         |
 
 ### Linux
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  1946.24ms  |  74.1 MB        |  88.9 MB       |
-| `gaze`     |  1138.32ms  |  36.3 MB        |  35.8 MB       |
-| `watchboy` |  717.04ms   |  16.5 MB        |  22.5 MB       |
+| `chokidar` |  2092.25ms  |  74.1 MB        |  88.8 MB       |
+| `gaze`     |  1253.56ms  |  36.1 MB        |  36.2 MB       |
+| `watchboy` |  512.89ms   |  15.8 MB        |  22.4 MB       |
 
 ### MacOS
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  579.52ms   |  39.1 MB        |  48 MB         |
-| `gaze`     |  1579.90ms  |  35.1 MB        |  37.8 MB       |
-| `watchboy` |  926.40ms   |  17.3 MB        |  25.6 MB       |
+| `chokidar` |  741.68ms   |  38.9 MB        |  47.8 MB       |
+| `gaze`     |  1914.90ms  |  35.3 MB        |  38.5 MB       |
+| `watchboy` |  751.57ms   |  18.2 MB        |  23.1 MB       |
 
 ## Typical large project
 
@@ -55,25 +55,25 @@ A much more typical project -- think monorepo -- when watching only project file
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  252.52ms  |  15.2 MB        |  11.6 MB       |
-| `gaze`     |  258.33ms  |  5.05 MB        |  5.99 MB       |
-| `watchboy` |  117.67ms  |  4.74 MB        |  5.26 MB       |
+| `chokidar` |  250.42ms  |  15.1 MB        |  11.6 MB       |
+| `gaze`     |  259.67ms  |  4.96 MB        |  6.09 MB       |
+| `watchboy` |  114.09ms  |  4.76 MB        |  5.29 MB       |
 
 ### Linux
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  178.46ms  |  15 MB          |  12.5 MB       |
-| `gaze`     |  172.20ms  |  4.67 MB        |  5.1 MB        |
-| `watchboy` |  86.60ms   |  5.81 MB        |  7.46 MB       |
+| `chokidar` |  195.79ms  |  15.2 MB        |  12.8 MB       |
+| `gaze`     |  179.78ms  |  4.7 MB         |  4.88 MB       |
+| `watchboy` |  95.66ms   |  5.44 MB        |  7.56 MB       |
 
 ### MacOS
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  60.81ms   |  4.57 MB        |  4.19 MB       |
-| `gaze`     |  266.00ms  |  4.72 MB        |  4.66 MB       |
-| `watchboy` |  182.63ms  |  15.9 MB        |  13.3 MB       |
+| `chokidar` |  79.07ms   |  4.62 MB        |  4.2 MB        |
+| `gaze`     |  279.89ms  |  4.68 MB        |  4.64 MB       |
+| `watchboy` |  164.14ms  |  14.2 MB        |  13.2 MB       |
 
 ## Memory footprint
 
@@ -81,9 +81,9 @@ This one is more for fun, but I wanted to see how much memory is needed to simpl
 
 | Library    | Windows size | Linux size | MacOS size |
 | ---------- | ---:         | ---:       | ---:       |
-| `chokidar` | 1.63 MB      | 1.58 MB    | 2.35 MB    |
-| `gaze`     | 3.31 MB      | 2.43 MB    | 5.01 MB    |
-| `watchboy` | 1.57 MB      | 1.7 MB     | 2.15 MB    |
+| `chokidar` | 1.63 MB      | 1.59 MB    | 2.34 MB    |
+| `gaze`     | 3.29 MB      | 2.45 MB    | 4.99 MB    |
+| `watchboy` | 1.56 MB      | 1.75 MB    | 2.14 MB    |
 
 ## Download size
 
@@ -91,10 +91,10 @@ An extension of the footprint, this metric measures how many files are installed
 
 | Library | Packages | Directories | Files | Total size |
 | --- | ---: | ---: | ---: | ---: |
-| `chokidar` (Windows) | 14 | 18 | 78   | 338 kB |
-| `chokidar` (MacOS)   | 15 | 19 | 83   | 373 kB |
+| `chokidar` (Windows) | 14 | 18 | 78   | 339 kB |
+| `chokidar` (MacOS)   | 15 | 19 | 83   | 374 kB |
 | `gaze`               | 14 | 19 | 1111 | 1.6 MB |
-| `watchboy`           | 14 | 17 | 81   | 346 kB |
+| `watchboy`           | 12 | 15 | 72   | 342 kB |
 
 ## Run the benchmarks yourself
 
