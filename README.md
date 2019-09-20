@@ -19,61 +19,116 @@ Tests are run in Azure Pipelines, for repeatability. The following specs are use
 | Ubuntu 16.04.6 LTS | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 |
 | macOS 10.14.6 | Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz | 4 |
 
-## Typical large install of `node_modules`
+Now, let's watch some popular projects and see what kind of results we get. In all cases, I have pinned the exact commit of each project, so that we always test the exact same files regardless of how these projects grow over time.
 
-After installing some heavyweight node modules, including ones like `jest` and `babel`, I ended up with roughly 6400 files in 400 directories. I decided to start this benchmark at that size, using a repeatable folder structure and controlled files.
+## Watching the `react` source code (small project)
 
-### Windows
-
-| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
-| ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  3517.94ms  |  71.6 MB        |  115 MB        |
-| `gaze`     |  2802.81ms  |  36.9 MB        |  46.9 MB       |
-| `watchboy` |  493.20ms   |  15.2 MB        |  19 MB         |
-
-### Linux
-
-| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
-| ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  2092.25ms  |  74.1 MB        |  88.8 MB       |
-| `gaze`     |  1253.56ms  |  36.1 MB        |  36.2 MB       |
-| `watchboy` |  512.89ms   |  15.8 MB        |  22.4 MB       |
-
-### MacOS
-
-| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
-| ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  741.68ms   |  38.9 MB        |  47.8 MB       |
-| `gaze`     |  1914.90ms  |  35.3 MB        |  38.5 MB       |
-| `watchboy` |  751.57ms   |  18.2 MB        |  23.1 MB       |
-
-## Typical large project
-
-A much more typical project -- think monorepo -- when watching only project files without dependencies can be around 320 files in 20 directories. I simulated that as well in a similar manner.
+The pinned version of `react` contains 1,554 files in 292 directories.
 
 ### Windows
 
-| Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
-| ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  250.42ms  |  15.1 MB        |  11.6 MB       |
-| `gaze`     |  259.67ms  |  4.96 MB        |  6.09 MB       |
-| `watchboy` |  114.09ms  |  4.76 MB        |  5.29 MB       |
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  1911.42ms  |  40 MB          |  53.3 MB       |
+| `gaze`     |  989.42ms   |  16 MB          |  15.4 MB       |
+| `watchboy` |  287.77ms   |  15.8 MB        |  18.9 MB       |
 
 ### Linux
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  195.79ms  |  15.2 MB        |  12.8 MB       |
-| `gaze`     |  179.78ms  |  4.7 MB         |  4.88 MB       |
-| `watchboy` |  95.66ms   |  5.44 MB        |  7.56 MB       |
+| `chokidar` |  890.42ms  |  38.8 MB        |  47.5 MB       |
+| `gaze`     |  430.51ms  |  17.5 MB        |  17.5 MB       |
+| `watchboy` |  243.68ms  |  16.1 MB        |  17.9 MB       |
 
 ### MacOS
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  79.07ms   |  4.62 MB        |  4.2 MB        |
-| `gaze`     |  279.89ms  |  4.68 MB        |  4.64 MB       |
-| `watchboy` |  164.14ms  |  14.2 MB        |  13.2 MB       |
+| `chokidar` |  297.88ms  |  16 MB          |  21.2 MB       |
+| `gaze`     |  677.94ms  |  17.6 MB        |  15.2 MB       |
+| `watchboy` |  302.06ms  |  16.7 MB        |  21 MB         |
+
+## Watching the `vscode` source code (medium project)
+
+The pinned version of `vscode` contains 4,396 files in 1,399 directories.
+
+### Windows
+
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  5974.47ms  |  63.4 MB        |  97.3 MB       |
+| `gaze`     |  3117.24ms  |  38.6 MB        |  62.6 MB       |
+| `watchboy` |  864.31ms   |  20 MB          |  21.5 MB       |
+
+### Linux
+
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  2559.05ms  |  65.1 MB        |  77.5 MB       |
+| `gaze`     |  1038.95ms  |  43.8 MB        |  55.8 MB       |
+| `watchboy` |  768.62ms   |  31.8 MB        |  25.4 MB       |
+
+### MacOS
+
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  763.66ms   |  41.5 MB        |  49.6 MB       |
+| `gaze`     |  1611.56ms  |  39.2 MB        |  48.4 MB       |
+| `watchboy` |  753.45ms   |  34.2 MB        |  23.7 MB       |
+
+## Watching the `babel` source code (large project)
+
+The pinned version of the `babel` source code is pretty diabolical. It contains 16,528 files in 8,216 directories. I actually had to disqualify `gaze` from this benchmark, but more on that later.
+
+### Windows
+
+| Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
+| ---        | ---:         | ---:            | ---:           |
+| `chokidar` |  26551.50ms  |  209 MB         |  347 MB        |
+| `watchboy` |  6928.71ms   |  49.3 MB        |  54.8 MB       |
+
+### Linux
+
+| Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
+| ---        | ---:         | ---:            | ---:           |
+| `chokidar` |  11780.62ms  |  201 MB         |  234 MB        |
+| `watchboy` |  6382.08ms   |  63.4 MB        |  71.8 MB       |
+
+### MacOS
+
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  3320.25ms  |  71 MB          |  94.7 MB       |
+| `watchboy` |  6400.29ms  |  51.6 MB        |  60.8 MB       |
+
+## Watching a single large directory
+
+This case is not necessarily common in software, but is common with other use cases. For a [photography application] I maintain, it is not all that rare to open a single directory with several hundred to a couple thousand photos that you took on a single day or single trip. In this benchmark, we'll watch a 1 directory containing 2000 files.
+
+### Windows
+
+| Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
+| ---        | ---:         | ---:            | ---:           |
+| `chokidar` |  1493.50ms   |  39.8 MB        |  54.7 MB       |
+| `gaze`     |  30472.50ms  |  15 MB          |  12.6 MB       |
+| `watchboy` |  172.20ms    |  13.7 MB        |  17.3 MB       |
+
+### Linux
+
+| Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
+| ---        | ---:         | ---:            | ---:           |
+| `chokidar` |  729.20ms    |  40.6 MB        |  51.6 MB       |
+| `gaze`     |  40377.00ms  |  15.1 MB        |  22.7 MB       |
+| `watchboy` |  140.00ms    |  13.9 MB        |  19.4 MB       |
+
+### MacOS
+
+| Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
+| ---        | ---:         | ---:            | ---:           |
+| `chokidar` |  248.50ms    |  17.6 MB        |  22.5 MB       |
+| `gaze`     |  54514.00ms  |  8.52 MB        |  9.84 MB       |
+| `watchboy` |  212.33ms    |  16.1 MB        |  19.9 MB       |
 
 ## Memory footprint
 
