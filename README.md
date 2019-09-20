@@ -79,7 +79,7 @@ The pinned version of `vscode` contains 4,396 files in 1,399 directories.
 
 ## Watching the `babel` source code (large project)
 
-The pinned version of the `babel` source code is pretty diabolical. It contains 16,528 files in 8,216 directories. I actually had to disqualify `gaze` from this benchmark, but more on that later.
+The pinned version of the `babel` source code is pretty diabolical. It contains 16,528 files in 8,216 directories. I actually had to disqualify `gaze` from this benchmark because it throws a `Maximum call stack size exceeded` when trying to watch all files.
 
 ### Windows
 
