@@ -29,25 +29,25 @@ The pinned version of `react` contains 1,554 files in 292 directories.
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  1911.42ms  |  40 MB          |  53.3 MB       |
-| `gaze`     |  989.42ms   |  16 MB          |  15.4 MB       |
-| `watchboy` |  287.77ms   |  15.8 MB        |  18.9 MB       |
+| `chokidar` |  1286.68ms  |  35.3 MB        |  48 MB         |
+| `gaze`     |  1006.31ms  |  16 MB          |  15.5 MB       |
+| `watchboy` |  290.58ms   |  15.9 MB        |  19.3 MB       |
 
 ### Linux
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  890.42ms  |  38.8 MB        |  47.5 MB       |
-| `gaze`     |  430.51ms  |  17.5 MB        |  17.5 MB       |
-| `watchboy` |  243.68ms  |  16.1 MB        |  17.9 MB       |
+| `chokidar` |  636.64ms  |  35.2 MB        |  43.3 MB       |
+| `gaze`     |  441.16ms  |  17.3 MB        |  17.2 MB       |
+| `watchboy` |  262.26ms  |  16 MB          |  19 MB         |
 
 ### MacOS
 
 | Library    |  Ready In  |  Retained Heap  |  Retained RSS  |
 | ---        | ---:       | ---:            | ---:           |
-| `chokidar` |  297.88ms  |  16 MB          |  21.2 MB       |
-| `gaze`     |  677.94ms  |  17.6 MB        |  15.2 MB       |
-| `watchboy` |  302.06ms  |  16.7 MB        |  21 MB         |
+| `chokidar` |  271.03ms  |  15.9 MB        |  21.2 MB       |
+| `gaze`     |  639.29ms  |  17.6 MB        |  15.2 MB       |
+| `watchboy` |  287.46ms  |  16.6 MB        |  20.8 MB       |
 
 ## Watching the `vscode` source code (medium project)
 
@@ -57,25 +57,25 @@ The pinned version of `vscode` contains 4,396 files in 1,399 directories.
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  5974.47ms  |  63.4 MB        |  97.3 MB       |
-| `gaze`     |  3117.24ms  |  38.6 MB        |  62.6 MB       |
-| `watchboy` |  864.31ms   |  20 MB          |  21.5 MB       |
+| `chokidar` |  4063.48ms  |  53.3 MB        |  90.5 MB       |
+| `gaze`     |  3221.65ms  |  38.7 MB        |  63.4 MB       |
+| `watchboy` |  868.90ms   |  19.5 MB        |  21.5 MB       |
 
 ### Linux
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  2559.05ms  |  65.1 MB        |  77.5 MB       |
-| `gaze`     |  1038.95ms  |  43.8 MB        |  55.8 MB       |
-| `watchboy` |  768.62ms   |  31.8 MB        |  25.4 MB       |
+| `chokidar` |  1787.42ms  |  52 MB          |  65.7 MB       |
+| `gaze`     |  1074.02ms  |  43.7 MB        |  55.5 MB       |
+| `watchboy` |  846.60ms   |  31.2 MB        |  25.7 MB       |
 
 ### MacOS
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  763.66ms   |  41.5 MB        |  49.6 MB       |
-| `gaze`     |  1611.56ms  |  39.2 MB        |  48.4 MB       |
-| `watchboy` |  753.45ms   |  34.2 MB        |  23.7 MB       |
+| `chokidar` |  717.89ms   |  39.2 MB        |  49.1 MB       |
+| `gaze`     |  1531.37ms  |  39.3 MB        |  48.2 MB       |
+| `watchboy` |  717.92ms   |  34.7 MB        |  23.8 MB       |
 
 ## Watching the `babel` source code (large project)
 
@@ -85,22 +85,22 @@ The pinned version of the `babel` source code is pretty diabolical. It contains 
 
 | Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
 | ---        | ---:         | ---:            | ---:           |
-| `chokidar` |  26551.50ms  |  209 MB         |  347 MB        |
-| `watchboy` |  6928.71ms   |  49.3 MB        |  54.8 MB       |
+| `chokidar` |  18936.22ms  |  164 MB         |  304 MB        |
+| `watchboy` |  7408.11ms   |  49.2 MB        |  54.2 MB       |
 
 ### Linux
 
-| Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
-| ---        | ---:         | ---:            | ---:           |
-| `chokidar` |  11780.62ms  |  201 MB         |  234 MB        |
-| `watchboy` |  6382.08ms   |  63.4 MB        |  71.8 MB       |
+| Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
+| ---        | ---:        | ---:            | ---:           |
+| `chokidar` |  7728.19ms  |  181 MB         |  208 MB        |
+| `watchboy` |  6865.25ms  |  63.5 MB        |  70.9 MB       |
 
 ### MacOS
 
 | Library    |  Ready In   |  Retained Heap  |  Retained RSS  |
 | ---        | ---:        | ---:            | ---:           |
-| `chokidar` |  3320.25ms  |  71 MB          |  94.7 MB       |
-| `watchboy` |  6400.29ms  |  51.6 MB        |  60.8 MB       |
+| `chokidar` |  2957.61ms  |  67 MB          |  97.6 MB       |
+| `watchboy` |  5524.79ms  |  51.1 MB        |  59.9 MB       |
 
 ## Watching a single large directory
 
@@ -110,25 +110,25 @@ This case is not necessarily common in software, but is common with other use ca
 
 | Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
 | ---        | ---:         | ---:            | ---:           |
-| `chokidar` |  1493.50ms   |  39.8 MB        |  54.7 MB       |
-| `gaze`     |  30472.50ms  |  15 MB          |  12.6 MB       |
-| `watchboy` |  172.20ms    |  13.7 MB        |  17.3 MB       |
+| `chokidar` |  899.83ms    |  36.9 MB        |  49.2 MB       |
+| `gaze`     |  31861.00ms  |  15.2 MB        |  12.9 MB       |
+| `watchboy` |  172.60ms    |  13.6 MB        |  17.8 MB       |
 
 ### Linux
 
 | Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
 | ---        | ---:         | ---:            | ---:           |
-| `chokidar` |  729.20ms    |  40.6 MB        |  51.6 MB       |
-| `gaze`     |  40377.00ms  |  15.1 MB        |  22.7 MB       |
-| `watchboy` |  140.00ms    |  13.9 MB        |  19.4 MB       |
+| `chokidar` |  432.60ms    |  37.5 MB        |  44.7 MB       |
+| `gaze`     |  42522.20ms  |  15.3 MB        |  22.1 MB       |
+| `watchboy` |  146.25ms    |  13.6 MB        |  19.8 MB       |
 
 ### MacOS
 
 | Library    |  Ready In    |  Retained Heap  |  Retained RSS  |
 | ---        | ---:         | ---:            | ---:           |
-| `chokidar` |  248.50ms    |  17.6 MB        |  22.5 MB       |
-| `gaze`     |  54514.00ms  |  8.52 MB        |  9.84 MB       |
-| `watchboy` |  212.33ms    |  16.1 MB        |  19.9 MB       |
+| `chokidar` |  225.75ms    |  16.9 MB        |  22.5 MB       |
+| `gaze`     |  52723.25ms  |  8.65 MB        |  12.3 MB       |
+| `watchboy` |  213.00ms    |  15.9 MB        |  21.3 MB       |
 
 ## Memory footprint
 
