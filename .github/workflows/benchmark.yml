@@ -16,7 +16,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: benchmark
       run: |
+        cat /etc/os-release
+        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
         npm install
+        echo =======================================================
         npm start
       env:
         CI: true
@@ -33,7 +36,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: benchmark
       run: |
+        system_profiler SPSoftwareDataType
         npm install
+        echo =======================================================
         npm start
       env:
         CI: true
@@ -50,8 +55,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: benchmark
       run: |
-        npm install
-        npm start
+        call systeminfo
+        call npm install
+        echo =======================================================
+        call npm start
       env:
         CI: true
-
