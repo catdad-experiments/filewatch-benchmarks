@@ -5,59 +5,45 @@ on: [push]
 jobs:
   linux:
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node-version: [10.x]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: benchmark
+        node-version: 10.x
+    - name: info
       run: |
         cat /etc/os-release
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-        npm install
-        echo =======================================================
-        npm start
-      env:
-        CI: true
+    - name: install
+      run: npm install
+    - name: benchmark
+      run: npm start
   macos:
     runs-on: macOS-10.14
-    strategy:
-      matrix:
-        node-version: [10.x]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 10.x
+    - name: info
+      run: system_profiler SPSoftwareDataType
+    - name: install
+      run: npm install
     - name: benchmark
-      run: |
-        system_profiler SPSoftwareDataType
-        npm install
-        echo =======================================================
-        npm start
-      env:
-        CI: true
+      run: npm start
   windows:
     runs-on: windows-2019
-    strategy:
-      matrix:
-        node-version: [10.x]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 10.x
+    - name: info
+      run: call systeminfo
+    - name: install
+      run: call npm install
     - name: benchmark
-      run: |
-        call systeminfo
-        call npm install
-        echo =======================================================
-        call npm start
-      env:
-        CI: true
+      run: call npm start
