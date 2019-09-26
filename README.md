@@ -13,11 +13,11 @@ _Note: all memory measurements were taken after garbage collection._
 
 Tests are run in Azure Pipelines, for repeatability. The following specs are used (I will simply be referring to these machines as Windows, Linux and MacOS below):
 
-| OS | Processor | Cores |
-| :--- | :--- | :--- |
-| Microsoft Windows Server 2019 Datacenter | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 |
-| Ubuntu 16.04.6 LTS | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 |
-| macOS 10.14.6 | Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz | 4 |
+| OS                                       | Processor                                 | Cores |
+| :---                                     | :---                                      | :---  |
+| Microsoft Windows Server 2019 Datacenter | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2     |
+| Ubuntu 16.04.6 LTS                       | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2     |
+| macOS 10.14.6                            | Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz | 4     |
 
 Now, let's watch some popular projects and see what kind of results we get. In all cases, I have pinned the exact commit of each project, so that we always test the exact same files regardless of how these projects grow over time.
 
