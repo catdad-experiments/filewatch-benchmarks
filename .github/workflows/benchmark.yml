@@ -43,7 +43,10 @@ jobs:
         node-version: 10.x
     - name: info
       run: call systeminfo
+      shell: cmd
     - name: install
       run: call npm install
+      shell: cmd
     - name: benchmark
       run: call npm start
+      shell: cmd
