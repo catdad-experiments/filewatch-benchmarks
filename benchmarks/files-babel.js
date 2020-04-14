@@ -25,8 +25,8 @@ async function setup() {
 }
 
 module.exports = require('../lib/grandma-filetest-wrapper.js')({
-  libs: ['chokidar', 'watchboy'],
-  duration: '4m',
+  libs: ['chokidar', 'sane', 'watchboy'],
+  duration: '5m',
   beforeAll: (cb) => {
     clean();
     setup().then(() => cb()).catch(e => cb(e));

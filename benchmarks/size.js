@@ -13,7 +13,7 @@ const pkg = require(`${root}/package.json`);
 
 const clean = require('../lib/clean.js');
 
-const libs = ['chokidar', 'gaze', 'watchboy'];
+const libs = ['chokidar', 'gaze', 'sane', 'watchboy'];
 
 async function getResults(name) {
   const dir = path.resolve(root, 'temp', `project-${name}`);
@@ -92,6 +92,8 @@ module.exports = {
     .then(result => { data['chokidar'] = result; })
     .then(() => getResults('gaze'))
     .then(result => { data['gaze'] = result; })
+    .then(() => getResults('sane'))
+    .then(result => { data['sane'] = result; })
     .then(() => getResults('watchboy'))
     .then(result => { data['watchboy'] = result; })
     .then(() => {
