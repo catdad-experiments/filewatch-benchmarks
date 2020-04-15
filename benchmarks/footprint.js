@@ -6,7 +6,7 @@ const bytes = require('pretty-bytes');
 const table = require('fancy-text-table');
 const chalk = require('chalk');
 
-const modules = ['chokidar', 'gaze', 'watchboy'];
+const modules = ['chokidar', 'gaze', 'sane', 'watchboy'];
 
 const getModule = (() => {
   let c = 0;
@@ -42,7 +42,7 @@ function serializer(name, result) {
 }
 
 module.exports = {
-  duration: '20s',
+  duration: '30s',
   serializer,
   test: function(cb) {
     try {
